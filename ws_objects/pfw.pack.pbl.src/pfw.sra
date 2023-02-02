@@ -30,6 +30,7 @@ long richtextedittype = 2
 long richtexteditversion = 1
 string richtexteditkey = ""
 string appicon = "res\logo.ico"
+string appruntimeversion = "19.2.0.2670"
 end type
 global pfw pfw
 
