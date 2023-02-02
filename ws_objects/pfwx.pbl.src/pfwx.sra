@@ -21,6 +21,7 @@ long richtextedittype = 2
 long richtexteditversion = 1
 string richtexteditkey = ""
 string appicon = ""
+string appruntimeversion = "19.2.0.2670"
 end type
 global pfwx pfwx
 
