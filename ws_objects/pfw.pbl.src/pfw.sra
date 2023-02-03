@@ -26,14 +26,16 @@ string themename = "Do Not Use Themes"
 boolean nativepdfvalid = false
 boolean nativepdfincludecustomfont = false
 string nativepdfappname = ""
-long richtextedittype = 2
-long richtexteditx64type = 3
-long richtexteditversion = 1
+long richtextedittype = 5
+long richtexteditx64type = 5
+long richtexteditversion = 3
 string richtexteditkey = ""
 string appicon = "res\logo.ico"
-string appruntimeversion = "19.2.0.2670"
+string appruntimeversion = "22.0.0.1878"
 boolean manualsession = false
 boolean unsupportedapierror = false
+boolean bignoreservercertificate = false
+uint ignoreservercertificate = 0
 end type
 global pfw pfw
 
@@ -90,7 +92,7 @@ n_cst_i18n locale
 
 pfwInitialize(Enums.INIT_FLAG_ENABLE_ALL)
 
-//多语言支持
+//다국어 지원
 lang = "en"
 choose case lang
 	case "en"
@@ -126,19 +128,19 @@ if Error.Object = "assert" then
 	end if
 end if
 
-sErrInfo = "类型: SYSTEM"+&
-					"~n信息: "+Error.Text
+sErrInfo = "종류: SYSTEM"+&
+					"~n정보: "+Error.Text
 if Error.WindowMenu <> Error.Object then
-	sErrInfo += "~n窗口: "+Error.WindowMenu
+	sErrInfo += "~n윈도우: "+Error.WindowMenu
 end if
-sErrInfo += "~n对象: "+Error.Object
-sErrInfo += "~n函数: "+Error.ObjectEvent+&
-				"~n行号: "+String(Error.Line)
+sErrInfo += "~n오브젝트: "+Error.Object
+sErrInfo += "~n이벤트: "+Error.ObjectEvent+&
+				"~n줄 번호: "+String(Error.Line)
 if sStackTrace <> "" then
-	sErrInfo += "~n调用栈:~n"+sStackTrace
+	sErrInfo += "~n호출 스택:~n"+sStackTrace
 end if
 
-MessageBox("系统错误",sErrInfo,StopSign!)
+MessageBox("시스템 오류",sErrInfo,StopSign!)
 
 HALT CLOSE
 end event
